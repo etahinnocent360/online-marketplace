@@ -10,6 +10,7 @@ import SuccessAnimation from "/src/assests/animations/success.json";
 import "react-toastify/dist/ReactToastify.css";
 import CartContext from "../context/CartContext";
 import SpinnerLoader from "./SpinnerLoader";
+import { config } from "../context/config";
 
 const Checkout = () => {
   //get userId and userDetails from UserContext
@@ -42,8 +43,8 @@ const Checkout = () => {
 
     //save product details to appwrite db
     return databases.createDocument(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_ORDERS_COLLECTION_ID,
+      config.dbID,
+      config.orderCollection,
       uuid(),
       {
         product_name,

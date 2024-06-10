@@ -4,8 +4,8 @@ import { Client, Account, Databases, Storage } from "appwrite";
 const client = new Client();
 
 client
-  .setEndpoint(import.meta.env.VITE_ENDPOINT)
-  .setProject(import.meta.env.VITE_PROJECT);
+  .setEndpoint('https://cloud.appwrite.io/v1')
+  .setProject('664cb97300376fecdc29');
 
 export const account = new Account(client);
 

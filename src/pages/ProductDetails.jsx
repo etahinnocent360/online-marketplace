@@ -65,7 +65,7 @@ const ProductDetails = () => {
                         setHideButton={setHideButton}
                         hideButton={hideButton}
                         style={
-                          "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 md:mb-2"
+                          "text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 md:mb-2"
                         }
                       />
                     )}

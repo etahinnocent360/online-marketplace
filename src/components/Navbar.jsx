@@ -38,9 +38,15 @@ const Navbar = () => {
     <nav className="bg-white dark:bg-gray-900 z-50 fixed w-full top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex  flex-wrap  space-y-2 items-center justify-between mx-auto p-4">
         <Link to="/home">
-          <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
+              <img
+          src="/assests/images/splash.png"
+          style={{height:70, width:70}}
+          className="absolute object-cover block w-full left-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
+          alt="..."
+        />
+          {/* <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
             O-Market
-          </span>
+          </span> */}
         </Link>
         <div className="hidden md:block">
           <Search />
@@ -52,7 +58,7 @@ const Navbar = () => {
                 id="dropdownNavbarList"
                 onClick={() => setDropDown(!dropdown)}
                 data-dropdown-toggle={dropdown ? "dropdownNavbar" : null}
-                className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               >
                 <svg
                   className="w-6 h-6 mr-2 text-primary-700 stroke-2 hover:text-primary-800"
@@ -178,7 +184,7 @@ const Navbar = () => {
                 id="dropdownNavbarList"
                 onClick={() => setDropDown(!dropdown)}
                 data-dropdown-toggle={dropdown ? "dropdownNavbar" : null}
-                className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-600 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               >
                 <svg
                   className="w-6 h-6 text-primary-700 stroke-2 hover:text-primary-800"
@@ -223,6 +229,7 @@ const Navbar = () => {
                 >
                   <li>
                     <Link
+                    onClick={() => setDropDown(!dropdown)}
                       to={!session ? "/signin" : "/home/dashboard"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >

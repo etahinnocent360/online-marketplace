@@ -49,7 +49,7 @@ const Cart = () => {
     //show load spinner
     setIsLoading(!isLoading);
 
-    fetch(`${import.meta.env.VITE_SERVER_URL}/payment`, {
+    fetch(`http://localhost:8000/payment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,9 +58,10 @@ const Cart = () => {
         items: updatedCart,
       }),
     })
-      .then((res) => {
+      .then(async (res) => {
         if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
+        const json = await res.json();
+        return await Promise.reject(json);
       })
       .then(({ url }) => {
         //redirect to payment page after 3000 milliseconds
@@ -122,7 +123,7 @@ const Cart = () => {
                         </div>
                         <button
                           type="button"
-                          className="text-primary-700 hover:text-white bg-transparent hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 md:py-2.5 py-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                          className="text-primary-700 hover:text-white bg-transparent hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 md:py-2.5 py-1 text-center inline-flex items-center mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                           onClick={() => handleRemoveItem(item.$id)}
                         >
                           <svg
@@ -164,7 +165,7 @@ const Cart = () => {
                 <button
                   type="button"
                   onClick={handleCheckOut}
-                  className="text-white w-full p bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className="text-white w-full p bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Checkout ({cartPrice}){" "}
                 </button>
@@ -179,7 +180,7 @@ const Cart = () => {
                 </h1>
                 <Link
                   to="/home"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-primary-700 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
                   START SHOPPING
                 </Link>

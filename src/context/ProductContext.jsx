@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { databases } from "../appwrite/appConfig";
+import { config } from "./config";
 
 const ProductContext = createContext();
 
@@ -9,7 +10,7 @@ export const ProductProvider = ({ children }) => {
   const [edit, setEdit] = useState(false);
 
   const addedToCart = (id) => {
-    const updatedProduct = products.map((product) => {
+    const updatedProduct = products?.map((product) => {
       if (product.$id === id) {
         return { ...product, addedToCart: true };
       }
@@ -46,8 +47,8 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     const getProducts = databases.listDocuments(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_COLLECTION_ID
+      config.dbID,
+      config.collectionID
     );
 
     getProducts.then(
@@ -67,8 +68,8 @@ export const ProductProvider = ({ children }) => {
 
     //get all orders from order database
     const getOrders = databases.listDocuments(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_ORDERS_COLLECTION_ID
+     config.dbID,
+      config.orderCollection
     );
 
     getOrders.then(

@@ -27,7 +27,7 @@ const Category = () => {
           <button
             key={index}
             onClick={() => handleCategory(category)}
-            className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 md:px-2.5 p-2 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-primary-800 hover:text-white"
+            className="bg-blue-100 text-primary-800 text-xs font-medium mr-2 md:px-2.5 p-2 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-primary-800 hover:text-white"
           >
             <span className="truncate ...">{category}</span>
           </button>

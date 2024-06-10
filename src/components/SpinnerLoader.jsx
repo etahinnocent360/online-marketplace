@@ -6,7 +6,7 @@ const SpinnerLoader = () => {
       <TailSpin
         height="120"
         width="120"
-        color="#1e40af"
+        color="#659D43"
         ariaLabel="tail-spin-loading"
         radius="1"
         wrapperStyle={{}}

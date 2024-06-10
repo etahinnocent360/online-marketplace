@@ -9,6 +9,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { config } from "../context/config";
 
 const ProductForm = () => {
   //initialize param
@@ -57,14 +58,14 @@ const ProductForm = () => {
 
     //store product image in appwrite storage
     const photoResponse = await storage.createFile(
-      import.meta.env.VITE_BUCKET_ID,
+      config.bucketID,
       uuid(),
       product.product_pic
     );
 
     //convert photo to url
-    const photoURL = await storage.getFileView(
-      import.meta.env.VITE_BUCKET_ID,
+    const photoURL = storage.getFileView(
+      config.bucketID,
       photoResponse.$id
     ).href;
 
@@ -86,8 +87,8 @@ const ProductForm = () => {
 
     //save product details to appwrite db
     const promise = databases.createDocument(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_COLLECTION_ID,
+      config.dbID,
+      config.collectionID,
       uuid(),
       {
         ...product,
@@ -151,13 +152,13 @@ const ProductForm = () => {
 
     //store product image in appwrite storage
     const photoResponse = await storage.updateFile(
-      import.meta.env.VITE_BUCKET_ID,
+      config.bucketID,
       fileId
     );
 
     //convert photo to url
-    const photoURL = await storage.getFileView(
-      import.meta.env.VITE_BUCKET_ID,
+    const photoURL = storage.getFileView(
+      config.bucketID,
       photoResponse.$id
     ).href;
 
@@ -180,8 +181,8 @@ const ProductForm = () => {
 
     //save product details to appwrite db
     const promise = databases.updateDocument(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_COLLECTION_ID,
+      config.dbID,
+      config.collectionID,
       param.id,
       {
         ...product,
@@ -233,8 +234,8 @@ const ProductForm = () => {
   //get product details
   const getProductDetails = () => {
     const product = databases.getDocument(
-      import.meta.env.VITE_DATABASE_ID,
-      import.meta.env.VITE_COLLECTION_ID,
+      config.dbID,
+      config.collectionID,
       param.id
     );
 
@@ -413,7 +414,7 @@ const ProductForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className="text-white w-full p bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className="text-white w-full p bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Save
                 </button>
@@ -551,7 +552,7 @@ const ProductForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className="text-white w-full p bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className="text-white w-full p bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                 >
                   Add Item
                 </button>

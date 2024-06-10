@@ -16,6 +16,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import "./index.css";
 import Unauthorized from "./pages/Unauthorized";
 
 function App() {

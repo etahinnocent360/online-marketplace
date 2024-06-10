@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AddToCart from "./AddToCart";
 
 const ProductItem = ({ product }) => {
+  console.log(product)
   return (
     <div className="w-full p-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link to={"/home/product-detail/" + product.$id}>
@@ -24,7 +25,7 @@ const ProductItem = ({ product }) => {
           <AddToCart
             product={product}
             style={
-              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             }
           />
         </div>

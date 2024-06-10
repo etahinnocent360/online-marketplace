@@ -17,12 +17,13 @@ const Dashboard = () => {
   const soldItems = orders.filter((order) => order.user_id === userId);
 
   //get products that have user_id same as current useer in session and products that name do not match sold products
-  const userProducts = products.filter(
+  const userProducts = products?.filter(
     (product) =>
       product.user_id === userDetails.$id &&
       !soldItems.some((item) => item.product_name === product.product_name)
   );
-
+console.log(userDetails)
+console.log('products',userProducts)
   return (
     <div className="md:mt-24 mb-4 mt-36 mx-auto">
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -49,7 +50,7 @@ const Dashboard = () => {
                 </h1>
                 <Link
                   to="/home/sell-item"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-primary-700 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
                   Sell Product
                 </Link>

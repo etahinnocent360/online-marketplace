@@ -6,7 +6,9 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:'http://localhost:5173'
+}));
 
 let port = process.env.PORT || 8000;
 
@@ -35,7 +37,7 @@ app.post("/payment", async (req, res) => {
       success_url: `${process.env.FRONTEND_URL}/checkout?stripe_referrer=true`,
       cancel_url: `${process.env.FRONTEND_URL}/cancel?stripe_referrer=true`,
     });
-
+console.log('stripe response', res)
     res.json({ url: session.url });
   } catch (e) {
     res.status(500).json({ error: e.message });
