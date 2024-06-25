@@ -40,8 +40,8 @@ const Navbar = () => {
         <Link to="/home">
               <img
           src="/assests/images/splash.png"
-          style={{height:70, width:70}}
-          className="absolute object-cover block w-full left-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
+          style={{height:70, width:70,position:'absolute', top:35}}
+          className="object-cover w-full left-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
           alt="..."
         />
           {/* <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
@@ -104,6 +104,7 @@ const Navbar = () => {
                 >
                   <li>
                     <Link
+                    onClick={()=>setDropDown(!dropdown)}
                       to={!session ? "/signin" : "/home/dashboard"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
@@ -112,6 +113,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
+                    onClick={()=>setDropDown(!dropdown)}
                       to={!session ? "/signin" : "/home/sell-item"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
@@ -120,6 +122,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
+                    onClick={()=>setDropDown(!dropdown)}
                       to={!session ? "/signin" : "/home/orders"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
