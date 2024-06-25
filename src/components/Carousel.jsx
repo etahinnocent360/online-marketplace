@@ -26,21 +26,28 @@ const Carousel = () => {
     >
       <SwiperSlide>
         <img
-          src="/assests/images/electronic.jpg"
+          src="/assests/images/dog1.webp"
           className="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="/assests/images/couch.jpg"
+          src="/assests/images/dog2.webp"
           className="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="/assests/images/shoe.jpg"
+          src="/assests/images/dog3.webp"
+          className="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          alt="..."
+        />
+      </SwiperSlide>
+       <SwiperSlide>
+        <img
+          src="/assests/images/dog4.jpeg"
           className="absolute object-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
