@@ -49,7 +49,7 @@ const Cart = () => {
     //show load spinner
     setIsLoading(!isLoading);
 
-    fetch(`http://localhost:8000/payment`, {
+    fetch(`waggin-payment-server-git-main-etahinnocent360s-projects.vercel.app/payment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
