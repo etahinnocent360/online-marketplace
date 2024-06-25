@@ -8,7 +8,7 @@
     "build": "npm install"
   },
     "engines": {
-    "node": "20.x"
+    "node": "19.x"
   },
   "keywords": [],
   "author": "",
